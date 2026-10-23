@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090B">
+  <meta name="description" content="Confira seu curso e finalize sua matrícula na VYERO Cursos.">
+  <link rel="icon" href="assets/favicon-vyero.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <title>Finalizar pedido | VYERO Cursos</title>
+  <style>
+    :root{color-scheme:dark;--bg:#09090b;--panel:#141315;--panel2:#1a1617;--line:rgba(246,206,118,.17);--gold:#f0c86c;--gold2:#d99b35;--white:#faf5ea;--text:#d3c7bd;--muted:#a89a93;--red:#9e1019}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 12% 0%,rgba(141,15,25,.19),transparent 36%),radial-gradient(ellipse at 86% 70%,rgba(185,126,35,.06),transparent 28%),var(--bg);color:var(--white);font:400 15px/1.55 Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+    a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible{outline:2px solid #ffd677;outline-offset:4px}
+    .container{max-width:1180px;width:calc(100% - 48px);margin:auto}
+    .strip{min-height:35px;background:linear-gradient(100deg,#280409,#641018 50%,#230308);display:grid;place-items:center;font-size:10px;font-weight:800;letter-spacing:.16em;color:#f9ddb0;text-align:center;padding:8px 12px}
+    header{background:rgba(9,9,11,.87);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .header-inner{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:inline-flex;align-items:center;gap:8px;min-width:0}.brand img{object-fit:contain;display:block;max-height:56px}.brand .symbol{width:52px}.brand .wordmark{width:156px}.brand-text{font-size:24px;font-weight:900;letter-spacing:.04em}.brand-text em{font-style:normal;color:var(--gold)}.brand-text[hidden]{display:none}
+    .back{color:#e9d6b9;font-size:13px;font-weight:700;border:1px solid rgba(242,193,105,.28);padding:12px 16px;border-radius:50px;white-space:nowrap;transition:.2s}.back:hover{border-color:var(--gold);background:rgba(243,202,111,.08)}
+    main{padding:54px 0 94px}.intro{margin-bottom:31px;max-width:790px}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--gold);font-weight:800;font-size:11px;letter-spacing:.17em;text-transform:uppercase}.eyebrow:before{content:"";display:block;width:20px;height:1px;background:var(--gold)}
+    h1{font:700 clamp(36px,5.3vw,58px)/1.07 'Playfair Display',Georgia,serif;letter-spacing:-.028em;margin:13px 0 14px;color:#fff7e8}h1 em{color:var(--gold);font-style:normal}
+    .intro p{color:var(--text);margin:0;font-size:15px}
+    .checkout{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:22px;align-items:start}
+    .main-panel,.summary{background:linear-gradient(145deg,rgba(29,24,25,.94),rgba(16,16,18,.96));border:1px solid var(--line);border-radius:22px;box-shadow:0 22px 65px rgba(0,0,0,.25);overflow:hidden}
+    .course-hero{position:relative;padding:35px 35px 34px;background:radial-gradient(circle at 100% 0,rgba(244,193,92,.16),transparent 41%),linear-gradient(135deg,#580a13,#1a1114 77%);border-bottom:1px solid rgba(255,227,153,.18);min-height:245px;overflow:hidden}
+    .course-hero:after{content:"V";font-family:'Playfair Display',serif;position:absolute;right:-15px;bottom:-115px;font-size:320px;font-weight:800;line-height:1;color:rgba(255,217,136,.06);pointer-events:none}
+    .small-label{font-size:10px;font-weight:800;letter-spacing:.16em;color:#f1d294;text-transform:uppercase}.course-hero h2{position:relative;z-index:1;font:700 clamp(29px,3.4vw,43px)/1.15 'Playfair Display',serif;letter-spacing:-.025em;margin:21px 0 14px;max-width:470px}.course-hero p{position:relative;z-index:1;max-width:470px;color:#ead8d0;font-size:14px;line-height:1.7;margin:0}.type-pill{position:relative;z-index:1;margin-top:23px;display:inline-flex;align-items:center;gap:8px;border-radius:99px;background:rgba(255,230,166,.09);border:1px solid rgba(255,230,166,.22);color:#fce7bd;padding:6px 12px;font-size:11px;font-weight:700}.type-pill:before{content:"";background:var(--gold);width:6px;height:6px;border-radius:50%}
+    .course-detail{padding:29px 35px 34px}.detail-title{font-size:16px;font-weight:800;margin:0 0 17px;color:#fbf2e5}.benefits{margin:0;padding:0;display:grid;gap:14px;list-style:none}.benefits li{display:flex;align-items:start;gap:13px;color:#d8cdc3;font-size:14px}.tick{flex:none;color:#efcb73;background:rgba(232,177,72,.1);border:1px solid rgba(234,190,93,.24);width:23px;height:23px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900}
+    .subnote{border-top:1px solid var(--line);margin-top:27px;padding-top:22px;display:flex;align-items:flex-start;gap:12px}.subnote svg{flex:none;color:var(--gold)}.subnote p{margin:0;color:var(--muted);font-size:12px;line-height:1.75}
+    .summary{padding:28px 27px 27px;position:sticky;top:20px}.summary-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:24px}.summary-heading h2{margin:0;font-size:18px;letter-spacing:-.02em}.security{color:#f4d18c;font-size:10px;font-weight:800;background:rgba(236,195,100,.08);border:1px solid rgba(236,195,100,.24);border-radius:99px;padding:5px 10px;white-space:nowrap}
+    .cart-item{display:flex;align-items:center;gap:14px;padding-bottom:21px;border-bottom:1px solid var(--line)}.item-icon{height:65px;width:63px;flex:none;display:grid;place-items:center;border-radius:13px;background:linear-gradient(140deg,#630e17,#261519);border:1px solid rgba(249,204,125,.25);font-family:'Playfair Display',serif;font-weight:800;font-size:27px;color:#f5d184}.item-details small{font-size:10px;letter-spacing:.13em;font-weight:800;color:var(--gold);text-transform:uppercase}.item-details strong{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:#fff6e9}
+    .cost-row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;margin:21px 0 0;color:#ccbeb4}.cost-row b{color:#f7ead5;font-size:14px}.total{border-top:1px solid var(--line);padding-top:21px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;gap:15px}.total span{font-size:13px;font-weight:800}.total b{font-size:27px;color:#f9d682;letter-spacing:-.04em;white-space:nowrap}
+    .button{display:flex;justify-content:center;align-items:center;gap:10px;min-height:58px;width:100%;margin-top:26px;text-align:center;border:1px solid #e8be5d;border-radius:13px;background:linear-gradient(114deg,#b87d26,#ffe39b 34%,#e7ad47 67%,#f0cc74);color:#241406;font:900 13px/1.2 Inter,system-ui,sans-serif;letter-spacing:.035em;text-transform:uppercase;box-shadow:0 12px 30px rgba(196,143,47,.2);transition:filter .2s, transform .2s}.button:hover{transform:translateY(-2px);filter:brightness(1.05)}.button svg{width:18px;height:18px}.button.disabled{background:#343133;color:#9d938c;border-color:#5b4c47;box-shadow:none;cursor:not-allowed;pointer-events:none}.button.disabled:hover{transform:none;filter:none}
+    .safe{display:flex;justify-content:center;align-items:flex-start;gap:7px;color:#aaa097;font-size:11px;text-align:center;line-height:1.6;margin:14px 0 0}.safe svg{flex:none;color:var(--gold)}
+    .new-choice{display:block;text-align:center;font-weight:700;font-size:12px;color:#e9c781;margin-top:22px;text-decoration:underline;text-underline-offset:4px}.status{margin:16px 0 0;color:#b9ada1;font-size:11px;text-align:center;line-height:1.5}
+    .help-line{color:#a69b94;font-size:12px;text-align:center;margin:23px 0 0}.help-line b{color:#e0c6a3}
+    footer{border-top:1px solid var(--line);color:#9f948d;font-size:11px;padding:24px 15px;text-align:center}
+    @media(max-width:860px){.checkout{grid-template-columns:1fr}.summary{position:static}.main-panel{order:1}.summary{order:0}.intro{margin-bottom:22px}main{padding-top:38px}.header-inner{min-height:72px}}
+    @media(max-width:520px){.container{width:calc(100% - 30px)}.strip{font-size:9px}.header-inner{min-height:64px}.brand{gap:1px}.brand .symbol{width:40px}.brand .wordmark{width:120px}.back{font-size:11px;padding:9px 11px}.brand-text{font-size:18px}main{padding:30px 0 54px}.intro p{font-size:13px}.intro h1{font-size:37px}.summary{padding:23px 20px}.main-panel,.summary{border-radius:17px}.course-hero{padding:28px 23px;min-height:240px}.course-detail{padding:25px 23px}.course-hero h2{font-size:32px}.total b{font-size:25px}.help-line{font-size:11px}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="strip">VYERO CURSOS · CONHECIMENTO QUE TRANSFORMA</div>
+  <header><div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Voltar à VYERO Cursos">
+      <img class="symbol" src="assets/vyero-mark.png" width="52" height="52" alt="" onerror="this.style.display='none';document.getElementById('brandFallback').hidden=false">
+      <img class="wordmark" src="assets/vyero-wordmark.png" width="156" height="54" alt="VYERO Cursos" onerror="this.style.display='none';document.getElementById('brandFallback').hidden=false">
+      <span class="brand-text" id="brandFallback" hidden>VYERO <em>CURSOS</em></span>
+    </a>
+    <a class="back" href="index.html#cursos">← Voltar aos cursos</a>
+  </div></header>
+  <main class="container">
+    <div class="intro">
+      <div class="eyebrow">Finalização da matrícula</div>
+      <h1>Está quase <em>concluído.</em></h1>
+      <p>Confira os detalhes da sua escolha e continue para finalizar o pagamento.</p>
+    </div>
+    <div class="checkout">
+      <section class="main-panel" aria-label="Detalhes do curso selecionado">
+        <div class="course-hero">
+          <div class="small-label">VYERO CURSOS &nbsp; / &nbsp; SUA ESCOLHA</div>
+          <h2 id="courseTitle">Curso para o ENEM</h2>
+          <p id="courseDescription">Preparação focada para o Exame Nacional do Ensino Médio.</p>
+          <div class="type-pill">Curso digital</div>
+        </div>
+        <div class="course-detail">
+          <h3 class="detail-title">O que você encontra nesta formação</h3>
+          <ul class="benefits" id="benefits"></ul>
+          <div class="subnote">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/></svg>
+            <p><strong>Próxima etapa:</strong> na página de pagamento, confira o nome do curso e o valor antes de concluir sua compra. Os dados pessoais e a forma de pagamento são informados diretamente lá.</p>
+          </div>
+        </div>
+      </section>
+      <aside class="summary" aria-labelledby="summaryTitle">
+        <div class="summary-heading"><h2 id="summaryTitle">Resumo do pedido</h2><span class="security">ETAPA FINAL</span></div>
+        <div class="cart-item"><span class="item-icon" aria-hidden="true">V</span><div class="item-details"><small>Curso selecionado</small><strong id="summaryCourse">Curso para o ENEM</strong></div></div>
+        <div class="cost-row"><span>Valor do curso</span><b id="subtotal">R$ 27,90</b></div>
+        <div class="total"><span>Total do pedido</span><b id="totalPrice">R$ 27,90</b></div>
+        <a class="button" id="checkoutButton" href="#" aria-label="Finalizar pedido na plataforma de pagamento">Finalizar pedido
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+        <p class="safe"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Você seguirá para um ambiente externo de pagamento.</p>
+        <a class="new-choice" href="index.html#cursos">Escolher outro curso</a>
+        <p id="checkoutStatus" class="status" role="status"></p>
+      </aside>
+    </div>
+    <p class="help-line">VYERO CURSOS &nbsp;·&nbsp; <b>Formação com propósito.</b></p>
+  </main>
+  <footer>© 2026 VYERO Cursos. Todos os direitos reservados.</footer>
+  <script>
+    (()=>{
+      // Somente links de pagamento pertencentes a cada produto.
+      // IMPORTANTE: este frontend NÃO entrega o curso nem verifica pedidos pagos.
+      const courses={
+        enem:{title:'Curso para o ENEM',description:'Uma proposta de preparação para o exame, com organização por áreas de conhecimento, prática de redação e questões.',price:27.90,link:'https://pay.finaliza.shop/pl/85689973d2',benefits:['Linguagens, Humanas, Matemática e Natureza','Redação e prática de questões','Orientações para organizar seus estudos']},
+        concursos:{title:'Cursos para Concursos',description:'Uma preparação para quem busca desenvolver uma base de estudos voltada a concursos públicos.',price:27.90,link:null,benefits:['Português e raciocínio lógico','Disciplinas conforme a seleção','Exercícios e revisões']},
+        seducao:{title:'Curso de Sedução',description:'Desenvolva autoconfiança, comunicação e conexões respeitosas nas relações interpessoais.',price:27.90,link:null,benefits:['Autoconfiança e presença','Comunicação clara e natural','Conexões genuínas e respeito mútuo']}
+      };
+      const params=new URLSearchParams(window.location.search);
+      const legacy=params.get('plano');
+      const wanted=params.get('curso')||(legacy==='enem'||legacy==='concursos'?legacy:'enem');
+      const data=Object.prototype.hasOwnProperty.call(courses,wanted)?courses[wanted]:null;
+      const btn=document.getElementById('checkoutButton');
+      const status=document.getElementById('checkoutStatus');
+      if(!data){
+        document.getElementById('courseTitle').textContent='Curso não encontrado';
+        document.getElementById('summaryCourse').textContent='Selecione um curso';
+        document.getElementById('courseDescription').textContent='Volte ao catálogo para escolher uma formação disponível.';
+        btn.removeAttribute('href');btn.classList.add('disabled');btn.setAttribute('aria-disabled','true');btn.firstChild.textContent='Curso indisponível ';status.textContent='Este curso não está disponível no catálogo.';return;
+      }
+      const fmt=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+      document.getElementById('courseTitle').textContent=data.title;
+      document.getElementById('summaryCourse').textContent=data.title;
+      document.getElementById('courseDescription').textContent=data.description;
+      document.getElementById('subtotal').textContent=fmt.format(data.price);
+      document.getElementById('totalPrice').textContent=fmt.format(data.price);
+      const benefits=document.getElementById('benefits');
+      data.benefits.forEach(label=>{const li=document.createElement('li');const tick=document.createElement('span');tick.className='tick';tick.textContent='✓';tick.setAttribute('aria-hidden','true');li.appendChild(tick);li.appendChild(document.createTextNode(label));benefits.appendChild(li)});
+      if(data.link){
+        btn.setAttribute('href',data.link);
+        btn.setAttribute('rel','noreferrer');
+        btn.setAttribute('aria-label','Finalizar pedido de '+data.title+' no ambiente de pagamento');
+      }else{
+        btn.removeAttribute('href');btn.classList.add('disabled');btn.setAttribute('aria-disabled','true');btn.firstChild.textContent='Matrículas em breve ';
+        status.textContent='A matrícula deste curso ainda não está disponível.';
+      }
+    })();
+  </script>
+</body>
+</html>
